@@ -1,6 +1,7 @@
 # gitTest
 本项目用于git相关操作的测试.
-常用命令收集:[wiki](wiki)
+
+常用命令收集:[wiki](https://github.com/loyoo/gitTest/wiki)
 
 ##git的主要特点:
 * 本地提交
