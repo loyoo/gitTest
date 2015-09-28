@@ -27,13 +27,13 @@
   * git commit -m 'info'
 
 * 远程
-  * git remote add origin <serverUrl>
+  * git remote add origin \<serverUrl\>
   * git push
   * git pull
 
 * 回滚
-  * 在add之前恢复某文件: git checkout -- <filename>  注意在commit前可能会有多次add,此命令仅能恢复到最近一次add后的状态
-  * 在commit后回滚版本: git reset –hard <id>/HEAD^  回滚到某一head/上一个head
+  * 在add之前恢复某文件: git checkout -- \<filename\>  注意在commit前可能会有多次add,此命令仅能恢复到最近一次add后的状态
+  * 在commit后回滚版本: git reset –hard \<id\>/HEAD^  回滚到某一head/上一个head
   * 撤消某次commit: git revert HEAD 注意是将需要revert的版本的内容再反向修改回去,这是一次新的提交,不影响之前提交内容
 
 ## 结合github的项目流程
@@ -50,12 +50,12 @@
 
 ### 分支
   * git branch 查看分支
-  * git checkout <branch1> 切换到分支
-  * git checkout -b <branch1> 新建并切换到**本地**分支, 此命令等同于:git branch <branch1> (创建) 加上 git checkout <branch1> (切换)
-  * git branch -d <branch1> 删除**本地**分支
-  * git push origin <branch1> 提交到**远程**分支
-  * git merge <branch1> 合并分支
-  * git diff <source_branch> <target_branch> 比较分支
+  * git checkout \<branch1\> 切换到分支
+  * git checkout -b \<branch1\> 新建并切换到**本地**分支, 此命令等同于:git branch \<branch1\> (创建) 加上 git checkout \<branch1\> (切换)
+  * git branch -d \<branch1\> 删除**本地**分支
+  * git push origin \<branch1\> 提交到**远程**分支
+  * git merge \<branch1\> 合并分支
+  * git diff \<source_branch\> \<target_branch\> 比较分支
 
 ### dev分支开发
   * 所有的开发先在该功能的dev分支完成
