@@ -1,0 +1,109 @@
+# js及node编码规范
+适用于javascript 和 nodejs.
+
+## 源码部分
+
+### 缩进
+使用2个空格,不使用tab和4空格.新的块产生时,按层级递增缩进.
+
+### 括号
+* 推荐使用小括号来尽可能地限定范围(组)和运算顺序.
+* 永远使用大括号,即使只有一行或者无内容.
+* 左大括号前不换行,后换行,右大括号前换行,如果右大括号后无语句,则独占一行.
+* 大括号内为空块且不属于多块语句(if/else 或 try/catch/finally)时可使用简洁不换行模式:{}.
+
+正确示例:
+
+    if (condition()) {
+      console.log('ok');
+    } else {
+      try {
+        var foo = fun(){};
+      } catch (Exception e) {
+      }
+    }
+
+### 空白
+* 块之间留一个空行,一般语句之间通常不空行,可以按逻辑加入空行以示区分,比如多个不同类型的变量赋值语句.
+* 多个连续空行不鼓励,也不反对,可视情况使用.
+* 运算符两侧空一格.
+* 如果在一条语句后做注释，则双斜杠(//)两边都要空格。这里可以允许多个空格，但没有必要.
+
+
+### 换行
+* 一行一个语句,除块结构外,必须以;号结束.
+* 方法链,每行只有一个方法,每行以.号开头,同时合理使用缩进.
+
+示例:
+
+    user
+      .findOne({ name: 'foo' })
+      .populate('bar')
+      .exec(function(err, user) {
+        return true;
+       });
+
+* 一行超过80或100字符时,可以换行或设置自动换行.
+  * ,号不在行首.
+  * 方法名与左括号留在同一行.
+  * 如果在赋值运算符处断开，通常的做法是在该符号后断开(比如=，它与前面的内容留在同一行)。这条规则也适用于foreach语句中的分号.
+  * 如果在非赋值运算符处断开，那么在该符号前断开(比如+，它将位于下一行).
+  * 自动换行时建议缩进4空格.
+
+示例:
+
+    var para = [{'aaa':'bbbb','ccc':'ddddd','ccc':'ddddd','ccc':'ddddd','ccc':'ddddd',
+        'ccc':'ddddd','ccc':'ddddd','ccc':'ddddd','ccc':'ddddd','ccc':'ddddd','ccc':function(){
+          print();
+        }}];
+
+### 命名
+* 变量,参数和方法名用小驼峰.
+* 不变的常量或全局变量使用全部大写,用_线区隔单词.
+* 类名首字母大写.
+
+### 赋值
+* 必须使用var.
+* 不使用连续赋值方式,每个变量使用一个var,独占一行.
+* 赋值语句应该有一定的逻辑顺序,不同的逻辑之间可以加空行区隔开.
+* 不使用new Array,new Object,请直接使用[],{}.
+
+### 其他
+* node中避免使用this,new, 仅在同步语句(如:JSON.parse())中使用try/catch.
+* 使用===和!==,不使用==和!=.
+* 尽量不使用大方法,每个方法解决一个小问题.
+* 尽早return,避免深层嵌套.
+
+正确示例:
+
+    function isPercentage(val) {
+     if (val < 0) {
+      return false;
+     }
+
+     if (val > 100) {
+      return false;
+     }
+
+     return true;
+    }
+
+错误示例:
+
+    function isPercentage(val) {
+     if (val >= 0) {
+      if (val < 100) {
+       return true;
+      } else {
+       return false;
+      }
+     } else {
+      return false;
+     }
+    }
+
+* 禁止使用： eval,with, Object.freeze, Object.preventExtensions, Object.seal
+
+
+
+
