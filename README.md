@@ -28,10 +28,15 @@
   * git add -A
   * git commit -m 'info'
 
-* 远程
-  * git remote add origin \<serverUrl\>
-  * git push
-  * git pull
+### 远端操作
+  * git remote -v 查看远端URL
+  * git remote add/remove \<URL\> 添加/删除远端的URL
+  * git pull = git fetch + git merge 注意是合并到当前分支
+  * git fetch 在不确定情况下使用,可以在merge前进行比较
+  * git remote add **upstream** \<URL\> 添加远端的主干
+  * git fetch upstream 抓取远端主干代码到本地
+  * git merge upstream/master 合并主干代码到本地
+  * git branch --set-upstream \<branch-name\> origin/\<branch-name\> 建立本地分支和远程分支的关联
 
 * 回滚
   * 在add之前恢复某文件: git checkout -- \<filename\>  注意在commit前可能会有多次add,此命令仅能恢复到最近一次add后的状态
@@ -46,16 +51,14 @@
   * 任务分配,issues
   * fork
 
-### 拉取远端
-  * git pull = git fetch + git merge 注意是合并到当前分支
-  * git fetch 在不确定情况下使用,可以在merge前进行比较
-
 ### 分支
   * git branch 查看分支
   * git checkout \<branch1\> 切换到分支
   * git checkout -b \<branch1\> 新建并切换到**本地**分支, 此命令等同于:git branch \<branch1\> (创建) 加上 git checkout \<branch1\> (切换)
+  * git checkout -b \<branch1\> origin/\<branch1\> 将远端的branch1分支抓取并切换过去
   * git branch -d \<branch1\> 删除**本地**分支
   * git push origin \<branch1\> 提交到**远程**分支
+  * git pull origin \<branch1\> 拉取到**远程**分支
   * git merge \<branch1\> 合并分支
   * git diff \<source_branch\> \<target_branch\> 比较分支
 
