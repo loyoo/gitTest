@@ -1,9 +1,5 @@
 eeeffff 
 asdfasdfsadf
 sdfasdfa
-<<<<<<< HEAD
-111111111111111111111111111111111111111111
-=======
-
+adsfasffffffffffff
 EEEEEE
->>>>>>> upstream/master
