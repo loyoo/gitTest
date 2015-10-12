@@ -51,6 +51,19 @@
   * 任务分配,issues
   * fork
 
+### 流程
+  1. fork项目
+  2. git init,增加.ignore文件
+  3. 设置主干的上游URL: git remote add origin \<URL\>
+  4. 获取需要开发的远程分支:git fetch origin dev:dev , git checkout dev
+  5. 开启新的功能分支f1开发,测试,commit: git checkout -b f1
+  6. 在开发过程中保持与dev主干同步: git pull --rebase origin dev
+  7. 在开发过程中随时推送f1到远端保存: git push origin f1
+  8. 功能分支f1开发结束,回到dev: git checkout dev , git merge f1
+  8. 如果需要,可删除本地f1分支及远端分支:  git branch -d f1 (删除本地) , git push --delete origin f1 (删除远端f1)
+  10. 功能正式结束后,push到服务端:git checkout dev , git fetch origin dev , git rebase -i origin/dev , git push
+  11. 在github页面在dev分支提交pull request到主项目
+
 ### 分支
   * git branch 查看分支
   * git checkout \<branch1\> 切换到分支
